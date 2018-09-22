@@ -1,0 +1,38 @@
+[gd_scene format=2]
+
+[node name="entity" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="push collider" type="CollisionShape2D" parent="." index="0"]
+
+visible = false
+
+[node name="sprite" type="Sprite" parent="." index="1"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="animator" type="AnimationPlayer" parent="." index="2"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+blend_times = [  ]
+
+[node name="sound player" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = null
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+

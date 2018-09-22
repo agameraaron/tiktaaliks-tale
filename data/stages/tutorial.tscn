@@ -1,0 +1,347 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://assets/game/tutorial/stage.png" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/agouti-coated.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/program/button prompts/XboxOne_Dpad.png" type="Texture" id=3]
+[ext_resource path="res://assets/program/button prompts/XboxOne_Menu.png" type="Texture" id=4]
+[ext_resource path="res://assets/program/button prompts/XboxOne_A.png" type="Texture" id=5]
+[ext_resource path="res://assets/program/button prompts/XboxOne_Left_Stick.png" type="Texture" id=6]
+[ext_resource path="res://assets/program/button prompts/Keyboard_White_Shift.png" type="Texture" id=7]
+[ext_resource path="res://assets/program/button prompts/Keyboard_White_Enter.png" type="Texture" id=8]
+[ext_resource path="res://assets/program/button prompts/Keyboard_White_Z.png" type="Texture" id=9]
+[ext_resource path="res://assets/program/button prompts/Keyboard_White_W.png" type="Texture" id=10]
+[ext_resource path="res://assets/program/button prompts/Keyboard_White_S.png" type="Texture" id=11]
+[ext_resource path="res://assets/program/button prompts/Keyboard_White_A.png" type="Texture" id=12]
+[ext_resource path="res://assets/program/button prompts/Keyboard_White_D.png" type="Texture" id=13]
+[ext_resource path="res://assets/program/button prompts/Keyboard_White_Arrow_Up.png" type="Texture" id=14]
+[ext_resource path="res://assets/program/button prompts/Keyboard_White_Arrow_Down.png" type="Texture" id=15]
+[ext_resource path="res://assets/program/button prompts/Keyboard_White_Arrow_Left.png" type="Texture" id=16]
+[ext_resource path="res://assets/program/button prompts/Keyboard_White_Arrow_Right.png" type="Texture" id=17]
+[ext_resource path="res://data/creatures/tiktaalik.tscn" type="PackedScene" id=18]
+[ext_resource path="res://data/minds/player.gd" type="Script" id=19]
+[ext_resource path="res://data/triggers/environment change trigger.gd" type="Script" id=20]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 16
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 90.6514, 9.82051 )
+
+[node name="stage" type="Node2D"]
+
+[node name="tiles stage" type="Node2D" parent="." index="0"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="stage texture" type="Sprite" parent="tiles stage" index="0"]
+
+position = Vector2( 160, 90 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="player barrier" type="StaticBody2D" parent="tiles stage" index="1"]
+
+input_pickable = false
+collision_layer = 2
+collision_mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tiles stage/player barrier" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -16.3401, -17.3856, 374.341, -17.3856, 320.305, 0.446327, 0.951462, 0.446327, 1.49182, 105.817, 124.154, 105.817, 144.147, 121.487, 144.687, 180.386, 319.224, 180.927, 320.305, 0.986687, 374.341, -17.3856, 372.72, 194.976, 97.676, 194.436, -26.6069, 196.057 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="instructions" type="Label" parent="tiles stage" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 66.0
+margin_top = 5.0
+margin_right = 265.0
+margin_bottom = 116.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "How to play:
+
+
+Movement
+
+Jump
+
+Begin"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="keyboard instructions" type="Label" parent="tiles stage" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 41.0
+margin_top = 35.0
+margin_right = 120.0
+margin_bottom = 70.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Keyboard
+
+
+"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="gamepad instructions" type="Label" parent="tiles stage" index="4"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 219.0
+margin_top = 15.0
+margin_right = 298.0
+margin_bottom = 183.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "
+Gamepad
+"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="button prompts" type="Node2D" parent="tiles stage" index="5"]
+
+[node name="dpad" type="Sprite" parent="tiles stage/button prompts" index="0"]
+
+position = Vector2( 242.3, 70.3069 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 3 )
+
+[node name="menu button" type="Sprite" parent="tiles stage/button prompts" index="1"]
+
+position = Vector2( 258.3, 144.307 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 4 )
+
+[node name="a button" type="Sprite" parent="tiles stage/button prompts" index="2"]
+
+position = Vector2( 258.3, 107.307 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 5 )
+
+[node name="left stick" type="Sprite" parent="tiles stage/button prompts" index="3"]
+
+position = Vector2( 278.447, 70.718 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 6 )
+
+[node name="key prompts" type="Node2D" parent="tiles stage" index="6"]
+
+[node name="shift" type="Sprite" parent="tiles stage/key prompts" index="0"]
+
+position = Vector2( 101.3, 108.307 )
+scale = Vector2( 0.4, 0.25 )
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Animation", "Transform" ]
+
+[node name="enter" type="Sprite" parent="tiles stage/key prompts" index="1"]
+
+position = Vector2( 64.3004, 145.307 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 8 )
+
+[node name="z" type="Sprite" parent="tiles stage/key prompts" index="2"]
+
+position = Vector2( 32.3004, 108.307 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 9 )
+
+[node name="w" type="Sprite" parent="tiles stage/key prompts" index="3"]
+
+position = Vector2( 100.42, 64.788 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 10 )
+
+[node name="s" type="Sprite" parent="tiles stage/key prompts" index="4"]
+
+position = Vector2( 100.128, 81.4314 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 11 )
+
+[node name="a" type="Sprite" parent="tiles stage/key prompts" index="5"]
+
+position = Vector2( 83.1931, 81.4314 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 12 )
+
+[node name="d" type="Sprite" parent="tiles stage/key prompts" index="6"]
+
+position = Vector2( 117.356, 81.4314 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 13 )
+
+[node name="up" type="Sprite" parent="tiles stage/key prompts" index="7"]
+
+position = Vector2( 33.2533, 64.2955 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 14 )
+
+[node name="down" type="Sprite" parent="tiles stage/key prompts" index="8"]
+
+position = Vector2( 32.9004, 81.1192 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 15 )
+
+[node name="left" type="Sprite" parent="tiles stage/key prompts" index="9"]
+
+position = Vector2( 15.1061, 81.1192 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 16 )
+
+[node name="right" type="Sprite" parent="tiles stage/key prompts" index="10"]
+
+position = Vector2( 50.7241, 81.1192 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 17 )
+
+[node name="sprites" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+
+[node name="player" parent="sprites" index="0" instance=ExtResource( 18 )]
+
+position = Vector2( 69.8207, 43.5769 )
+script = ExtResource( 19 )
+
+[node name="tiles foreground" type="Node2D" parent="." index="2"]
+
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="background" type="ParallaxBackground" parent="." index="3"]
+
+editor/display_folded = true
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="background" index="0"]
+
+motion_scale = Vector2( 1, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 0, 0 )
+
+[node name="triggers" type="Node2D" parent="." index="4"]
+
+editor/display_folded = true
+
+[node name="waterbound" type="Area2D" parent="triggers" index="0"]
+
+position = Vector2( 239.92, 140.308 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 20 )
+environment_type = "water"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="triggers/waterbound" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="earthbound" type="Area2D" parent="triggers" index="1"]
+
+position = Vector2( 228.92, 104.308 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 20 )
+environment_type = "land"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="triggers/earthbound" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="earthbound2" type="Area2D" parent="triggers" index="2"]
+
+position = Vector2( 79.9734, 44.924 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 20 )
+environment_type = "land"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="triggers/earthbound2" index="0"]
+
+shape = SubResource( 2 )
+
+
