@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/big hurts.wav-1421fab0b76f39bd8468e02fc17d1947.sample"
+
+[deps]
+
+source_file="res://assets/sounds/big hurts.wav"
+dest_files=[ "res://.import/big hurts.wav-1421fab0b76f39bd8468e02fc17d1947.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
