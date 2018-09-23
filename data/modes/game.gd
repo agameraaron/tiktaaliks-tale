@@ -28,8 +28,12 @@ func _process(delta):
 		if Input.is_action_just_pressed("start"):
 			game_state = ""
 			#get_parent().current_mode = ""
-			next_stage = "stage 1"
-			top_stage = 1
+			if top_stage == 1:
+				next_stage = "stage 1"
+			if top_stage == 2:
+				next_stage = "stage 2"
+			else:
+				next_stage = "tutorial"
 	
 	if next_stage != current_stage:
 		

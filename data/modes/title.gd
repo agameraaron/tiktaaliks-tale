@@ -2,9 +2,12 @@ extends Node2D
 
 var input_disabled = false
 
+
+
 func _ready():
+	var version = get_parent().program_version
 	get_node("begin label/begin flashing animation").play("begin")
-	get_node("version label").set_text("version 0.1 alpha\n\"Competition Submission\"")
+	get_node("version label").set_text("\""+str(get_parent().program_version_name)+"\"\n"+str(get_parent().program_version))
 
 func _process(delta):
 	

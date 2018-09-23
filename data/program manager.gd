@@ -2,6 +2,9 @@ extends Node
 
 var debug = false
 
+var program_version = "v0.1.1"
+var program_version_name = "Competition Submission + Checkpoint Fix"
+
 var current_mode = "title"
 var next_mode = "title"
 
